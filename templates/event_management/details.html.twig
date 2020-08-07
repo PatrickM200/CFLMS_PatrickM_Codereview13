@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+{% block title %}
+{{ event.name }}
+{% endblock %}
+{% block main %}
+
+    <h2 class="page-header mt-3">Latest Events in Vienna</h2>
+
+    <div class="row pt-2 pl-2 pr-2 pr-lg-0 pb-0">
+        <div class="col col-lg-9 mt-4 pb-5 main">
+            
+                <div class="row">
+                    <div class="col col-12 col-md-6">
+                        <h1 class="ev-name">{{ event.name }}</h1>
+                        <p>{{event.date|date('j.m.Y')}} at {{event.date|date('G:i')}}</p>
+
+                        <p class="ev-description">{{event.description}}</p>
+                        
+                        <p><b>capacity:</b> {{event.capacity}}</p>
+                        <p><b>email:</b> {{event.contactMail}}</p>
+                        <p><b>phone:</b> {{event.contactPhone}}</p>
+                        <p><b>address:</b> {{event.address}}</p>
+                        <p><b>website:</b> <a class="detail-link" href="{{event.URL}}">{{event.URL}}</a></p>
+                        <p><b>type:</b> {{event.type}}</p>
+                    
+                    </div>
+                    <div class="col col-12 col-md-6">
+                        <img src="{{ asset(event.image)}}" class="img-fluid pt-1" alt="event-image">
+                    </div>
+                </div>
+                
+
+            
+            
+        </div>
+        
+        <aside class="col col-3 d-none d-lg-block mt-4 pl-1 pt-1 pr-0 pb-0" id="sidebar">
+            <div class="sidebar-content d-flex">
+                <p class="m-auto">Sidebar</p>
+            </div>
+        </aside>
+        
+    </div>
+
+
+
+
+
+{% endblock %}{# endmain #}

@@ -1,0 +1,54 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+nav {
+  background: #e5223522;
+}
+
+.page-header {
+  color: red;
+}
+
+.ev-name {
+  color: red;
+  font-weight: 700;
+  font-size: 3em;
+}
+
+.ev-description {
+  padding: 1em;
+  background: #e5223522;
+}
+
+.post-card {
+  border: 0;
+}
+
+.post-card-text {
+  color: gray;
+}
+
+.post-link,
+.detail-link,
+.post-link:hover {
+  text-decoration: none;
+  color: red;
+}
+
+.card-title:hover,
+.detail-link:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+.sidebar-content {
+  height: 100%;
+  background: lightgray;
+}
+
+footer {
+  background: #e52236;
+  height: 200px;
+}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block title %}Events{% endblock %}
+
+{% block main %}
+
+    {# read and display just one flash message type #}
+    {% for message in app.flashes('notice') %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+
+    <h2 class="page-header mt-3">Latest Events in Vienna</h2>
+
+    <div class="row pt-2 pl-2 pr-2 pr-lg-0 pb-0">
+        <div class="col col-lg-9 main">
+            <div class="row">
+
+                {% for event in events %}
+
+                    <div class="col-sm-6 col-md-4 mt-4 p-1">
+                        <div class="card post-card">
+                            <a href="{{event.id}}" class="post-link">
+                
+                                <img src="{{ asset(event.image) }}" class="card-img-top img-fluid">
+                
+                            
+                                <div class="card-body">
+                                        <h3 class="card-title">{{event.name}}</h3>
+                                        <div class="card-text post-card-text">
+                                            {{event.date|date('j.m.Y')}} at {{event.date|date('G:i')}}
+                                        </div>
+                                    
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <aside class="col col-3 d-none d-lg-block mt-4 pl-1 pt-1 pr-0 pb-0" id="sidebar">
+            <div class="sidebar-content d-flex">
+                <p class="m-auto">Sidebar</p>
+            </div>
+        </aside>
+    </div>
+
+{% endblock %}{# end main #}

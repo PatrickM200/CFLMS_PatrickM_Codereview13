@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block title %}Dashboard{% endblock %}
+{% block admin_list_items %}{% endblock %}
+{% block main %}
+
+    <a class="btn btn-sm btn-success mt-2 mb-2" href="/create">Create Event</a>
+
+    {# read and display just one flash message type #}
+    {% for message in app.flashes('notice') %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+
+    <h2 class="page-header">Dashboard</h2>
+    <table class="table table-stripe table-responsive-sm">
+        <thead class="thead-light">
+            <tr>
+                <th>name</th>
+                <th>date time</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for event in events %}
+           
+            <tr>
+                <td>{{event.name}}</td>
+                <td>{{event.date|date('j. F Y')}} at {{event.date|date('G:i')}}</td>
+                <td>
+                    {# {% set speakingURL = event.name|replace({' ': '-'})|lower%} {# replace spaces with dash and set lowercase #}
+                    
+                    <a href="{{event.id}}" class="btn btn-primary d-block mb-1">View</a>
+                    <a href="{{event.id}}/edit" class="btn btn-primary d-block mb-1">Edit</a>
+                    <a href="{{event.id}}/delete" class="btn btn-danger d-block">Delete</a>        
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+   
+     
+    
+
+{% endblock %}{# endmain #}
